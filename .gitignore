@@ -48,3 +48,7 @@
 /AzureFunctionCall/bin/Debug/netcoreapp3.1/bin/Azure.Core.dll
 /AzureFunctionCall/.vs/AzureFunctionCall/config/applicationhost.config
 /.vs/slnx.sqlite
+
+.python_packages
+__pycache__
+.venv
