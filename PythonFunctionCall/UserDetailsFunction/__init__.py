@@ -6,7 +6,11 @@ from UserDetailsFunction.azure_storage import AzureStorage
 
 def main(msg: func.ServiceBusMessage):
     userDetails =  CreateDetails.get(msg)
+    
+    #Azure Blob Storage Code
     AzureStorage.writeBlob(userDetails)
+    blob_content = AzureStorage.readBlob(userDetails.Id).decode("utf-8")
+        
     
     logging.info('Python ServiceBus queue trigger processed message: %s',
                  msg)
