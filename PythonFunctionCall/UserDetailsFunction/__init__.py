@@ -10,7 +10,8 @@ def main(msg: func.ServiceBusMessage):
     #Azure Blob Storage Code
     AzureStorage.writeBlob(userDetails)
     blob_content = AzureStorage.readBlob(userDetails.Id).decode("utf-8")
-        
     
-    logging.info('Python ServiceBus queue trigger processed message: %s',
-                 msg)
+    #Azure Table Storage
+    AzureStorage.writeTable(userDetails)
+    
+    logging.info('Python ServiceBus queue trigger processed message: %s', msg)
