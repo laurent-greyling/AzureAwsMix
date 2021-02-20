@@ -24,6 +24,11 @@ class AzureStorage:
         
         table_name = "userdetails"        
         table.insert_entity(table_name, entity)
+        
+    def readTable(partitionKey, rowKey):
+        table = AzureStorage.create_table_client()
+        table_name = "userdetails" 
+        return table.get_entity(table_name, partitionKey, rowKey)
     
     def create_blob_client(blobName):
         connection_string = os.environ['AzureWebJobsStorage']

@@ -13,5 +13,8 @@ def main(msg: func.ServiceBusMessage):
     
     #Azure Table Storage
     AzureStorage.writeTable(userDetails)
-    
+    partitionKey = "python-" + userDetails.FirstName
+    rowKey = userDetails.Surname + str(userDetails.Id)
+    tableDetails = AzureStorage.readTable(partitionKey, rowKey)
+        
     logging.info('Python ServiceBus queue trigger processed message: %s', msg)
